@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//6/1
+function isOdd(num){
+       if (num%10===num){
+           return (num%2===0)?false:true;
+        }
+return isOdd(num%10);
+ }
+ console.log(isOdd(88));
+//6/2
+function min(array) {
+if(array.length===1){
+    return array[0]>=0?array[0]:-1;
+}else{
+if (array[0]<array[length-1])
+array[length-1]=array[0];
+
+return min(array.slice(1));
+}
+
+}
+
+console.log(min([-2, 5, 3, 0]));
+console.log(min([-2,-3,-4,-5,-6,-7,-8]));
+
+//6/3 sra hamar kxndrem aseq im arajarkac lucumy inchqanov e optimal u ete ka ayl tarberak erb funkciaic durs datark zangvac chi haytararvum, xndrum em aseq
+let f=[];
+function indexOfviolated(arrAsc){
+   
+    if (arrAsc[0]>arrAsc[1]){
+        return f.length;
+
+    }else{
+        f.push(arrAsc[0]);
+        if (arrAsc.length===0)
+        {return -1;}
+}
+
+    return indexOfviolated(arrAsc.slice(1));
+} 
+
+const Arr1=[-56,-9,87,-23,0,-105,55,1];
+console.log(indexOfviolated(Arr1));
+
+//6/4 sa nuynpes vstah chem vor chisht lucum e qnai vor verjin return myShift(arr0.slice(1)); recursive kanchy comment aneluc heto funkcian nuyn dzevov ashxatum e,
+// xndrum em anpayman kgreq
+
+function myShift(arr0){
+    if(arr0.length>0){
+        arr0=arr0.slice(1);
+        return arr0;
+    }else{return arr0;}
+return myShift(arr0.slice(1));
+}
+
+
+console.log(myShift([10,5,8,5,8]));
+console.log(myShift([]));
+
+//6/5
+
+function flatten(items) {
+  const flat = [];
+
+  items.forEach(item => {
+    if (Array.isArray(item)) {
+      flat.push(...flatten(item));
+    } else {
+      flat.push(item);
+    }
+  });
+
+  return flat;
+}
+
+console.log(flatten([1,[3,4,[1,[],2]],10]));
+
+//6/6  [d,e,f,g,a,b,c,h]
+function reverseArray(arr11,n) {
+    
+    if (n===arr11.length){
+    
+        return arr11;
+
+    } else{
+
+        arr11.unshift(arr11[arr11.length-1]);
+        arr11.pop();
+        
+
+         
+};
+return reverseArray(arr11,++n);
+}
+
+const t=['a','b','c','d','e','f','g','h'];
+console.log(reverseArray(t,3));
+
+//6-7
+
+function sum_of_digits(n)
+{
+    if ( n % 10===n )
+    return n
+    else{
+        return sum_of_digits(n%10+parseInt(n/10));
+    }
+}
+
+let num = 29;
+let result = sum_of_digits(num);
+console.log( "Sum of digits in "+ num
+   +" is "+result );
+
+
+   //6/8
+   obj = {
+  a: { b: { c: { d: ['1', '2'] } } },
+  e: 'Saeid'
+}
+const Clone = function (obj) {
+  
+  const container = Array.isArray(obj) ? [] : {}
+  const keys  = Object.keys(obj)
+   
+  for (let i = 0; i < keys.length; i++) {
+    const key = keys[i]
+    if(typeof obj[key] == 'object') {
+      container[key] = Clone(obj[key])
+    }
+    else
+      container[key] = obj[key].slice()
+  }
+  
+  return container
+}
+ console.log(Clone(obj))
+
+</script>
+</body>
+</html>
